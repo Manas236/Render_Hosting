@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="color-scheme" content="light">
+    <meta name="supported-color-schemes" content="light">
+    <title>Table Layout</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital@0;1&family=Bebas+Neue&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            mso-line-height-rule: exactly;
+        }
+
+        img {
+            border: 0;
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        /* ── WRAPPER: fixed 794px, never fluid ── */
+        .a4-wrapper {
+            width: 794px !important;
+            max-width: 794px !important;
+            min-width: 794px !important;
+            min-height: 1123px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+        }
+
+        table.layout {
+            width: 794px !important;
+            min-width: 794px !important;
+            min-height: 1123px;
+            border-collapse: collapse;
+        }
+
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        /* ── NO MOBILE REFLOW: the layout is never touched by breakpoints ── */
+        /* The original @media (max-width: 500px) block has been intentionally
+       removed. The email scales as one rigid unit at all viewport sizes.   */
+
+        /* ── Dark mode: sidebar stays white regardless of client or OS theme ── */
+        @media (prefers-color-scheme: dark) {
+            .sidebar-column {
+                background-color: #ffffff !important;
+            }
+
+            .sidebar-column td {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+            }
+
+            .sidebar-column span {
+                color: #000000 !important;
+            }
+        }
+
+        /* Gmail dark mode override */
+        [data-ogsc] .sidebar-column {
+            background-color: #ffffff !important;
+        }
+
+        [data-ogsc] .sidebar-column td {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+        }
+
+        [data-ogsc] .sidebar-column span {
+            color: #000000 !important;
+        }
+
+        [data-ogsb] .sidebar-column {
+            background-color: #ffffff !important;
+        }
+    </style>
+</head>
+
+<body
+    style="margin:0 !important; padding:0 !important; -webkit-text-size-adjust:100% !important; -ms-text-size-adjust:100% !important; font-family: Arial, sans-serif;"
+    bgcolor="#f0f0f0">
+
+    <span style="font-size:1px; line-height:1px; color:#ffffff; display:none; max-height:0; overflow:hidden;">
+        Your daily dose of local news from Navi Mumbai &amp; Thane.
+    </span>
+
+    <!-- Outer centering table — does NOT collapse on small viewports -->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+        style="background-color:#f0f0f0;">
+        <tr>
+            <td align="center" valign="top">
+
+                <!-- a4-wrapper: hard 794px — HTML attribute + CSS belt-and-suspenders -->
+                <div class="a4-wrapper"
+                    style="width:794px; max-width:794px; min-width:794px; margin:0 auto; background:#ffffff;">
+
+                    <table class="layout" width="794" style="color: #FFFFFF; width:794px; min-width:794px;">
+
+                        <!-- ===================== ROW 1: Sidebar | Main Content ===================== -->
+                        <tr style="height: 10px;">
+
+                            <!-- ── SIDEBAR ── -->
+                            <td id="sidebar" class="sidebar-column" data-ogsc valign="top" align="center"
+                                bgcolor="#ffffff" width="100"
+                                style="width: 100px; padding: 15px 0 0 0; background-color: #ffffff !important; background-image: url('https://singlecolorimage.com/get/ffffff/100x1200'); background-repeat: no-repeat; background-size: 100% 100%; border-right: 1px solid #e5e5e5; border: 2px solid #999; vertical-align: top; font-family: Arial, sans-serif; font-size: 14px;">
+                                <table role="presentation" width="100%" height="100%" cellpadding="0" cellspacing="0"
+                                    border="0"
+                                    style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; height: 100%;">
+
+                                    <!-- TOP: QR + Date -->
+                                    <tr>
+                                        <td align="center" valign="top"
+                                            style="border: 0; padding: 0 8px; font-size: 14px;">
+
+                                            <img src="https://raw.githubusercontent.com/Manas236/Newsband/main/QR%20Code.png"
+                                                width="120" height="120" style="display: block;" alt="Newsband QR">
+
+                                            <!-- Spacer below QR -->
+                                            <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+                                                width="100%">
+                                                <tr>
+                                                    <td height="8" style="font-size:0;line-height:0;border:0;">&nbsp;
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <!-- Spacer -->
+                                            <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+                                                width="100%">
+                                                <tr>
+                                                    <td height="50" style="font-size:0;line-height:0;border:0;">&nbsp;
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </td>
+                                    </tr>
+
+                                    <!-- LOGO + DATE + RNI: logo is a background, text is real content -->
+                                    <tr>
+                                        <td align="center" valign="bottom" height="460"
+                                            background="https://raw.githubusercontent.com/Manas236/Newsband/main/newsband-logo-00001.png"
+                                            style="
+                        height: 750px;
+                        background-image: url('https://raw.githubusercontent.com/Manas236/Newsband/main/newsband-logo-00001.png');
+                        background-repeat: no-repeat;
+                        background-position: top center;
+                        background-size: 100px 510px;
+                        border: 0; padding: 0;">
+
+                                            <!-- inner table: date + spacer + RNI pinned to bottom -->
+                                            <table role="presentation" width="100%" cellpadding="" cellspacing="0"
+                                                border="0">
+                                                <tr>
+                                                    <td align="center" bgcolor="#222222"
+                                                        style="border: 0; padding: 4px 2px; background-color: #222222 !important; background-image: url('https://singlecolorimage.com/get/222222/100x20'); background-size: 100% 100%; font-family: 'Franklin Gothic Demi', 'Arial Narrow', Arial, sans-serif; font-size: 11px; letter-spacing: 1px; color: #ffffff !important; text-transform: capitalize; line-height: 14px;">
+                                                        Saturday<br>March 21, 2026
+                                                    </td>
+                                                </tr>
+                                                <!-- Spacer between date and RNI -->
+                                                <tr>
+                                                    <td height="10" style="font-size:0;line-height:0;border:0;">&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" bgcolor="#222222"
+                                                        style="border: 0; padding: 4px 2px; background-color: #222222 !important; background-image: url('https://singlecolorimage.com/get/222222/100x20'); background-size: 100% 100%; font-family: 'Times New Roman', Times, serif; font-size: 9px; letter-spacing: 0.5px; color: #ffffff !important; text-transform: uppercase; line-height: 14px;">
+                                                        <strong>RNI No.</strong><br>MAHENG/2007/21778
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+                                                width="100%">
+                                                <tr>
+                                                    <td height="50" style="font-size:0;line-height:0;border:0;">&nbsp;
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                            <!-- ── END SIDEBAR ── -->
+
+                            <!-- ── MAIN CONTENT ── -->
+                            <td id="main-content" class="main-content-column" valign="middle" bgcolor="#fdf411" style="
+                  background-color: #fdf411;
+                  background-image: url('https://plus.unsplash.com/premium_photo-1750672731214-13f4d85ec681?q=80&w=715&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+                  background-size: cover; background-position: center center; background-repeat: no-repeat;
+                  border: 2px solid #999; padding: 10px; vertical-align: middle;
+                  font-family: Arial, sans-serif; font-size: 14px;">
+
+                                <!-- ── NEWS CARDS ── -->
+                                <table width="100%" cellpadding="0" cellspacing="0"
+                                    style="border-collapse: collapse; border: 0;">
+                                    <tr>
+                                        <td style="border: 0; padding: 12px 56px 12px 56px;">
+
+                                            <!-- ══ CARD 1 ══ -->
+                                            <a href="https://www.newsband.in/article_detail/container-crash-kills-3-iit-bombay-students"
+                                                target="_blank" style="text-decoration: none; display: block;">
+                                                <table width="100%" cellpadding="0" cellspacing="0"
+                                                    style="border-collapse: collapse; border: 0; background: #f9f9f9; border-radius: 10px; overflow: hidden; margin-bottom: 10px;">
+                                                    <tr valign="top">
+                                                        <td width="42%"
+                                                            style="border: 0; padding: 8px; font-size: 0; line-height: 0; text-align: center; vertical-align: middle;">
+                                                            <img src="https://www.newsband.in/uploads/blog_main_img/2fd8308d8d6008c275e31fa03d5a0e70_1.jpg"
+                                                                width="100%"
+                                                                style="display: block; width: 100%; height: auto; border-radius: 8px;"
+                                                                alt="">
+                                                        </td>
+                                                        <td width="58%" valign="top"
+                                                            style="border: 0; padding: 16px 18px;">
+                                                            <span
+                                                                style="font-family: 'Franklin Gothic Demi','Arial Narrow',Arial,sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #ed1c24; display: block; margin-bottom: 6px;">●
+                                                                Top Story</span>
+                                                            <span
+                                                                style="font-family: Georgia,'Times New Roman',serif; font-size: 15px; font-weight: bold; color: #111; line-height: 1.4; display: block; margin-bottom: 8px;">Container
+                                                                Crash Kills 3 IIT Bombay Students</span>
+                                                            <span
+                                                                style="font-family: Arial,sans-serif; font-size: 11px; color: #555; line-height: 1.55; display: block;">A
+                                                                tragic accident near IIT Bombay claimed three student
+                                                                lives when a container truck
+                                                                collided with their vehicle on the highway.</span>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </a>
+
+                                            <!-- ══ CARD 2 ══ -->
+                                            <a href="https://www.newsband.in/article_detail/city-celebrates-gudi-padwa-with-culture-and-unity"
+                                                target="_blank" style="text-decoration: none; display: block;">
+                                                <table width="100%" cellpadding="0" cellspacing="0"
+                                                    style="border-collapse: collapse; border: 0; background: #f9f9f9; border-radius: 10px; overflow: hidden; margin-bottom: 10px;">
+                                                    <tr valign="top">
+                                                        <td width="58%" valign="top"
+                                                            style="border: 0; padding: 16px 18px;">
+                                                            <span
+                                                                style="font-family: 'Franklin Gothic Demi','Arial Narrow',Arial,sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #0C447C; display: block; margin-bottom: 6px;">Festive</span>
+                                                            <span
+                                                                style="font-family: Georgia,'Times New Roman',serif; font-size: 15px; font-weight: bold; color: #111; line-height: 1.4; display: block; margin-bottom: 8px;">City
+                                                                celebrates Gudi Padwa with Culture and Unity</span>
+                                                            <span
+                                                                style="font-family: Arial,sans-serif; font-size: 11px; color: #555; line-height: 1.55; display: block;">Thane
+                                                                celebrated Gudi Padwa with a vibrant procession
+                                                                featuring traditional performances,
+                                                                festive energy, and thematic floats promoting social
+                                                                messages.</span>
+                                                        </td>
+                                                        <td width="42%"
+                                                            style="border: 0; padding: 8px; font-size: 0; line-height: 0; text-align: center; vertical-align: middle;">
+                                                            <img src="https://www.newsband.in/uploads/blog_main_img/41c3257090cc1365408c6ee252aac37d_1.jpg"
+                                                                width="100%"
+                                                                style="display: block; width: 100%; height: auto; border-radius: 8px;"
+                                                                alt="">
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </a>
+
+                                            <!-- ══ CARD 3 ══ -->
+                                            <a href="https://www.newsband.in/article_detail/fugitive-don-ravi-pujari-finally-nabbed"
+                                                target="_blank" style="text-decoration: none; display: block;">
+                                                <table width="100%" cellpadding="0" cellspacing="0"
+                                                    style="border-collapse: collapse; border: 0; background: #f9f9f9; border-radius: 10px; overflow: hidden; margin-bottom: 10px;">
+                                                    <tr valign="top">
+                                                        <td width="42%"
+                                                            style="border: 0; padding: 8px; font-size: 0; line-height: 0; text-align: center; vertical-align: middle;">
+                                                            <img src="https://images.mid-day.com/images/images/2026/jan/Ravi-Pujari-a-1769206179894_d.png"
+                                                                width="100%"
+                                                                style="display: block; width: 100%; height: auto; border-radius: 8px;"
+                                                                alt="">
+                                                        </td>
+                                                        <td width="58%" valign="top"
+                                                            style="border: 0; padding: 16px 18px;">
+                                                            <span
+                                                                style="font-family: 'Franklin Gothic Demi','Arial Narrow',Arial,sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #ed1c24; display: block; margin-bottom: 6px;">Crime</span>
+                                                            <span
+                                                                style="font-family: Georgia,'Times New Roman',serif; font-size: 15px; font-weight: bold; color: #111; line-height: 1.4; display: block; margin-bottom: 8px;">Fugitive
+                                                                Don Ravi Pujari finally nabbed</span>
+                                                            <span
+                                                                style="font-family: Arial,sans-serif; font-size: 11px; color: #555; line-height: 1.55; display: block;">Thane
+                                                                Crime Branch arrested gangster Ravi Pujari, who had been
+                                                                evading authorities for years,
+                                                                in connection with a 2017 extortion case.</span>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </a>
+
+                                            <!-- ══ CARD 4 ══ -->
+                                            <a href="https://www.newsband.in/article_detail/corporator-manoj-haldankar-speaks-on-the-citys-infrastructure-and-green-spaces"
+                                                target="_blank" style="text-decoration: none; display: block;">
+                                                <table width="100%" cellpadding="0" cellspacing="0"
+                                                    style="border-collapse: collapse; border: 0; background: #f9f9f9; border-radius: 10px; overflow: hidden; margin-bottom: 10px;">
+                                                    <tr valign="top">
+                                                        <td width="58%" valign="top"
+                                                            style="border: 0; padding: 16px 18px;">
+                                                            <span
+                                                                style="font-family: 'Franklin Gothic Demi','Arial Narrow',Arial,sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #ff4747; display: block; margin-bottom: 6px;">▶
+                                                                Video Interview</span>
+                                                            <span
+                                                                style="font-family: Georgia,'Times New Roman',serif; font-size: 15px; font-weight: bold; color: #111; line-height: 1.4; display: block; margin-bottom: 8px;">Corporator
+                                                                Manoj Haldankar speaks on city's infrastructure and
+                                                                green spaces</span>
+                                                            <span
+                                                                style="font-family: Arial,sans-serif; font-size: 11px; color: #555; line-height: 1.55; display: block;">Shiv
+                                                                Sena leader and Airoli corporator Manoj Haldankar is
+                                                                known for his assertive
+                                                                leadership and focus on public welfare and
+                                                                infrastructure development.</span>
+                                                        </td>
+                                                        <td width="42%"
+                                                            style="border: 0; padding: 8px; font-size: 0; line-height: 0; text-align: center; vertical-align: middle;">
+                                                            <img src="https://www.newsband.in/uploads/blog_main_img/621eebc2abdcfb8ff1b01bbf8beddd16_1.jpg"
+                                                                width="100%"
+                                                                style="display: block; width: 100%; height: auto; border-radius: 8px;"
+                                                                alt="">
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </a>
+
+                                            <!-- ══ CARD 5 ══ -->
+                                            <a href="https://www.newsband.in/article_detail/kdmc-unveils-rs-3186-crore-budget-with-no-tax-hike#:~:text=Kalyan%3A%20The%20Kalyan%2DDombivli%20civic,crore%2C%20leaving%20a%20marginal%20surplus."
+                                                target="_blank" style="text-decoration: none; display: block;">
+                                                <table width="100%" cellpadding="0" cellspacing="0"
+                                                    style="border-collapse: collapse; border: 0; background: #f9f9f9; border-radius: 10px; overflow: hidden;">
+                                                    <tr valign="top">
+                                                        <td width="42%"
+                                                            style="border: 0; padding: 8px; font-size: 0; line-height: 0; text-align: center; vertical-align: middle;">
+                                                            <img src="https://www.newsband.in/uploads/blog_main_img/39a844ae276785b44cfcb901f574ba93_1.jpg"
+                                                                width="100%"
+                                                                style="display: block; width: 100%; height: auto; border-radius: 8px;"
+                                                                alt="">
+                                                        </td>
+                                                        <td width="58%" valign="top"
+                                                            style="border: 0; padding: 16px 18px;">
+                                                            <span
+                                                                style="font-family: 'Franklin Gothic Demi','Arial Narrow',Arial,sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #1A7A4A; display: block; margin-bottom: 6px;">Civic
+                                                                &amp; Politics</span>
+                                                            <span
+                                                                style="font-family: Georgia,'Times New Roman',serif; font-size: 15px; font-weight: bold; color: #111; line-height: 1.4; display: block; margin-bottom: 8px;">KDMC
+                                                                announces ₹3,186 crore budget with no tax hike.</span>
+                                                            <span
+                                                                style="font-family: Arial,sans-serif; font-size: 11px; color: #555; line-height: 1.55; display: block;">The
+                                                                Kalyan–Dombivli civic body proposed a ₹3,186 crore
+                                                                budget for 2026–27 with no tax or
+                                                                tariff hikes. Revenue and expenditure are nearly equal,
+                                                                resulting in a small
+                                                                surplus.</span>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </a>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- ── END NEWS CARDS ── -->
+
+                            </td>
+                            <!-- ── END MAIN CONTENT ── -->
+
+                        </tr>
+                        <!-- ===================== END ROW 1 ===================== -->
+
+                        <!-- ===================== ROW 2: Footer ===================== -->
+                        <tr>
+                            <td colspan="2" id="footer-cell" style="border: none; padding: 0;">
+                                <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td align="center"
+                                            style="background-color: #0a0a0a; padding: 38px 24px 30px; text-align: center;">
+
+                                            <p
+                                                style="font-family: Georgia, 'Times New Roman', serif; font-size: 12px; color: #bfbfbf; font-style: italic; margin: 0 0 16px 0;">
+                                            </p>
+
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0"
+                                                align="center" style="margin: 0 auto 16px auto;">
+                                                <tr>
+                                                    <td style="padding: 0 5px; border: 0;">
+                                                        <a href="https://www.instagram.com/newsbandofficial/"
+                                                            target="_blank" style="text-decoration: none;">
+                                                            <table role="presentation" border="0" cellpadding="0"
+                                                                cellspacing="0">
+                                                                <tr>
+                                                                    <td width="38" height="38"
+                                                                        style="background-color: #ffffff; border-radius: 50%; text-align: center; vertical-align: middle;">
+                                                                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg"
+                                                                            width="17" height="17" alt="Instagram"
+                                                                            style="display: block; margin: 0 auto;">
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </a>
+                                                    </td>
+                                                    <td style="padding: 0 5px; border: 0;">
+                                                        <a href="https://www.facebook.com/newsband.in" target="_blank"
+                                                            style="text-decoration: none;">
+                                                            <table role="presentation" border="0" cellpadding="0"
+                                                                cellspacing="0">
+                                                                <tr>
+                                                                    <td width="38" height="38"
+                                                                        style="background-color: #ffffff; border-radius: 50%; text-align: center; vertical-align: middle;">
+                                                                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/facebook.svg"
+                                                                            width="17" height="17" alt="Facebook"
+                                                                            style="display: block; margin: 0 auto;">
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </a>
+                                                    </td>
+                                                    <td style="padding: 0 5px; border: 0;">
+                                                        <a href="https://x.com/NewsbandTweets" target="_blank"
+                                                            style="text-decoration: none;">
+                                                            <table role="presentation" border="0" cellpadding="0"
+                                                                cellspacing="0">
+                                                                <tr>
+                                                                    <td width="38" height="38"
+                                                                        style="background-color: #ffffff; border-radius: 50%; text-align: center; vertical-align: middle;">
+                                                                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/x.svg"
+                                                                            width="17" height="17" alt="X"
+                                                                            style="display: block; margin: 0 auto;">
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </a>
+                                                    </td>
+                                                    <td style="padding: 0 5px; border: 0;">
+                                                        <a href="https://www.youtube.com/@Newsband-" target="_blank"
+                                                            style="text-decoration: none;">
+                                                            <table role="presentation" border="0" cellpadding="0"
+                                                                cellspacing="0">
+                                                                <tr>
+                                                                    <td width="38" height="38"
+                                                                        style="background-color: #ffffff; border-radius: 50%; text-align: center; vertical-align: middle;">
+                                                                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/youtube.svg"
+                                                                            width="17" height="17" alt="YouTube"
+                                                                            style="display: block; margin: 0 auto;">
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0"
+                                                align="center" style="margin: 0 auto 14px auto;">
+                                                <tr>
+                                                    <td align="center" valign="middle"
+                                                        style="vertical-align: middle; padding: 0 14px;">
+                                                        <a href="https://www.newsband.in/" target="_blank"
+                                                            style="font-family: Georgia, 'Times New Roman', serif; font-size: 11px; color: #bbbbbb; text-decoration: none;">Visit
+                                                            Website</a>
+                                                    </td>
+                                                    <td align="center" valign="middle"
+                                                        style="vertical-align: middle; color: #666666; font-size: 14px;">
+                                                        |</td>
+                                                    <td align="center" valign="middle"
+                                                        style="vertical-align: middle; padding: 0 14px;">
+                                                        <a href="https://www.newsband.in/privacy-policy" target="_blank"
+                                                            style="font-family: Georgia, 'Times New Roman', serif; font-size: 11px; color: #bbbbbb; text-decoration: none;">Privacy
+                                                            Policy</a>
+                                                    </td>
+                                                    <td align="center" valign="middle"
+                                                        style="vertical-align: middle; color: #666666; font-size: 14px;">
+                                                        |</td>
+                                                    <td align="center" valign="middle"
+                                                        style="vertical-align: middle; padding: 0 14px;">
+                                                        <a href="*|UNSUB|*" target="_blank"
+                                                            style="font-family: Georgia, 'Times New Roman', serif; font-size: 11px; color: #bbbbbb; text-decoration: none;">Unsubscribe</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <div
+                                                style="font-family: 'Arial Narrow', Arial, sans-serif; font-size: 9px; letter-spacing: 2.5px; color: #999999;">
+                                                All rights reserved
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- ===================== END FOOTER ===================== -->
+
+                    </table>
+                </div>
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
