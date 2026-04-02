@@ -520,10 +520,13 @@ def fix_date_br(text: str) -> str:
     for day in days:
         if text.startswith(day):
             rest = text[len(day):]
+
             if re.match(r'^\s*<br\s*/?>', rest, re.I):
-                text = f"{day}<br>{re.sub('^\\s*<br\\s*/?>\\s*', '', rest, flags=re.I)}"
+                cleaned = re.sub(r'^\s*<br\s*/?>\s*', '', rest, flags=re.I)
+                text = f"{day}<br>{cleaned}"
             else:
                 text = f"{day}<br>{rest.lstrip()}"
+
             break
     return text
 
