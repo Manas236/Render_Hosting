@@ -2085,6 +2085,13 @@ def _process_form(form_data) -> str:
 #  FLASK ROUTES
 # ══════════════════════════════════════════════════════════════════
 
+# ── Health Check (Render) ─────────────────────────────────────────
+
+@app.route("/health")
+def health():
+    return "OK", 200
+
+
 # ── Login / Logout ────────────────────────────────────────────────
 
 @app.route('/', methods=['GET', 'POST'])
