@@ -1376,7 +1376,7 @@ CONVERTER_HTML = """
             <div
                 class="upload-zone"
                 id="dropZone"
-                onclick="document.getElementById('fileInput').click()"
+                onclick="if(event.target.id !== 'fileInput' && !event.target.closest('label')) document.getElementById('fileInput').click()"
             >
                 <span class="upload-icon">📄</span>
                 <label for="fileInput">
@@ -1454,7 +1454,7 @@ CONVERTER_HTML = """
 
         // ── Copy code ──
         function copyCode() {
-            const code = document.getElementById("codeContent").innerText;
+            const code = document.getElementById("codeContent").textContent;
             navigator.clipboard.writeText(code).then(() => {
                 const btn = document.getElementById("copyBtn");
                 const label = document.getElementById("copyLabel");
