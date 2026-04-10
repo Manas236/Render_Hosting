@@ -44,7 +44,7 @@ def require_login(f):
 # ─────────────────────────────────────────────
 # Constants
 # ─────────────────────────────────────────────
-ORIGINAL_FILE = "template2.html"
+ORIGINAL_FILE = "template.html"
 GITHUB_BASE   = "https://raw.githubusercontent.com/Manas236/Newsband/main/"
 
 # Tags we care about when indexing the document
